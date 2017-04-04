@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 26, 2016, 10:42:18 PM
+    Author     : hipnosapo
+*/
+
+.play_page_container_div{
+    margin-top: 10vh;
+}
+.play_category_common_settings{
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 500ms;
+    -moz-transition-timing-function: linear;
+}
+
+.play_ciencias_div:hover{
+    background-color: #c8e6c9;
+}
+.play_ciencias_div{
+    background-color: #a5d6a7;
+}
+
+.play_historia_div:hover{
+    background-color: #d7ccc8;
+}
+.play_historia_div{
+    background-color: #bcaaa4;
+}
+
+.play_mates_div:hover{
+    background-color: #e1bee7;
+}
+.play_mates_div{
+    background-color: #ce93d8;
+}
+
+.play_lenguas_div:hover{
+    background-color: #bbdefb;
+}
+.play_lenguas_div{
+    background-color: #90caf9;
+}
+
+.play_deportes_div:hover{
+    background-color: #f8bbd0;
+}
+.play_deportes_div{
+    background-color: #f48fb1;
+}
+
+.play_arte_div:hover{
+    background-color: #ffcc80;
+}
+.play_arte_div{
+    background-color: #ffe0b2;
+}
+
+.play_geo_div:hover{
+    background-color: #b2dfdb;
+}
+.play_geo_div{
+    background-color: #80cbc4;
+}
+
+.play_spiri_div:hover{
+    background-color: #90caf9;
+}
+.play_spiri_div{
+    background-color: #64b5f6;
+}
+

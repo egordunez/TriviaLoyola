@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            Administrar preguntas
+        </ui:define>
+        <ui:define name="page_content">
+            <p:commandLink>
+                <img src="img/ic_add_circle_64.png"
+                     class="users_admin_add_user_button"
+                     title="Adicionar Pregunta"/>
+                <p:ajax event="click"
+                        listener="#{questionsAdminMB.addQuestion()}"
+                        update="@form:id_add_question_dialog"/>
+            </p:commandLink>
+            <!--Dialog delete definition-->
+            <p:dialog modal="true" 
+                      closable="false"
+                      width="300px"
+                      styleClass="users_admin_add_user_dialog"
+                      resizable="true"
+                      visible="#{questionsAdminMB.deleteDialogVisivility}"
+                      id="id_delete_question_dialog">
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:outputLabel value="De continuar se perderán los datos de: #{questionsAdminMB.questionSelected.question}"
+                                           styleClass="users_admin_delete_user_warn"/><br/>
+                        </div>
+                    </div>
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:commandButton value="Continuar"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_confirm_color">
+                                <p:ajax event="click"
+                                        listener="#{questionsAdminMB.confirmDeleteQuestion()}"
+                                        update="@form:id_delete_question_dialog @form:id_questions_page_list"/>
+                            </p:commandButton>
+                        </div>
+                        <div class="col-xs-12">
+                            <p:commandButton value="Atrás"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_cancel_color">
+                                <p:ajax event="click"
+                                        listener="#{questionsAdminMB.cancelDeleteQuestion()}"
+                                        update="@form:id_delete_question_dialog"/>
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>
+            
+            <!--Dialog add definition-->
+            <p:dialog modal="true" 
+                      closable="false"
+                      width="300px"
+                      styleClass="users_admin_add_user_dialog"
+                      resizable="true"
+                      visible="#{questionsAdminMB.addDialogVisivility}"
+                      id="id_add_question_dialog">
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:inputTextarea value="#{questionsAdminMB.questionSelected.question}"
+                                         styleClass="users_admin_input_text"
+                                         placeholder="Pregunta">
+                                <p:ajax event="keyup"/>
+                            </p:inputTextarea><br/>
+                            <h5 class="settings_menu_title">Indique la categoría de la pregunta </h5>
+                            <p:selectOneMenu value="#{questionsAdminMB.selectedCategory}"
+                                             styleClass="users_admin_select_menu center-block">
+                                <p:ajax listener="#{questionsAdminMB.change}"
+                                        event="change"/>
+                                <f:selectItems value="#{questionsAdminMB.categories}"/>
+                            </p:selectOneMenu><br/>
+                            <p:inputTextarea value="#{questionsAdminMB.questionSelected.answer1}"
+                                         styleClass="users_admin_input_text"
+                                         placeholder="Posible respuesta 1">
+                                <p:ajax event="keyup"/>
+                            </p:inputTextarea><br/>
+                            <p:inputTextarea value="#{questionsAdminMB.questionSelected.answer2}"
+                                         styleClass="users_admin_input_text"
+                                         placeholder="Posible respuesta 2">
+                                <p:ajax event="keyup"/>
+                            </p:inputTextarea><br/>
+                            <p:inputTextarea value="#{questionsAdminMB.questionSelected.answer3}"
+                                         styleClass="users_admin_input_text"
+                                         placeholder="Posible respuesta 3">
+                                <p:ajax event="keyup"/>
+                            </p:inputTextarea><br/>
+                            <h5 class="settings_menu_title">Indique la respuesta correcta </h5> 
+                            <p:selectOneMenu value="#{questionsAdminMB.rigthQuestion}"
+                                             styleClass="users_admin_select_menu center-block">
+                                <p:ajax listener="#{questionsAdminMB.change}"
+                                        event="change"/>
+                                <f:selectItems value="#{questionsAdminMB.posiblesRigthQuestion}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:commandButton value="Continuar"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_confirm_color">
+                                <p:ajax event="click"
+                                        listener="#{questionsAdminMB.confirmAddQuestion()}"
+                                        update="id_add_question_dialog id_questions_page_list"/>
+                            </p:commandButton>
+                        </div>
+                        <div class="col-xs-12">
+                            <p:commandButton value="Atrás"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_cancel_color">
+                                <p:ajax event="click"
+                                        listener="#{questionsAdminMB.cancelAddQuestion()}"
+                                        update="id_add_question_dialog"/>
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>              
+            <h:panelGroup id="id_questions_page_list">
+                <ul class="users_admin_list_container quit_space">
+                    <div class="container quit_space users_admin_list_header">
+                        <div class="row quit_space">
+                            <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
+                                <p:outputLabel value="Preguntas"
+                                               styleClass = "users_admin_column_name"/>
+
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-4 col-lg-4">
+                                <p:outputLabel value="Adicionar desde Hoja de cálculo:"
+                                               styleClass = "users_admin_column_name"/><br/>
+                                <p:commandButton value="Adicionar"
+                                                 styleClass="users_admin_list_item_button
+                                                 users_admin_list_item_edit_color">
+                                    <p:ajax event="click"
+                                            listener="#{sesionAdminMB.loadFromExel()}"/>
+                                </p:commandButton>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
+                                <p:outputLabel value="Filtrar por:"
+                                               styleClass = "users_admin_column_name"/>
+                                <p:selectOneMenu value="#{questionsAdminMB.selectedCategory}"
+                                                 styleClass="users_admin_select_menu">
+                                    <p:ajax listener="#{questionsAdminMB.changeFilter()}"
+                                            event="change"
+                                            update="id_questions_page_list"/>
+                                    <f:selectItems value="#{questionsAdminMB.categories}"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="col-xs-0 col-sm-4 col-md-3 col-lg-3">
+                                <p:outputLabel value="Acciones"
+                                               styleClass = "users_admin_column_name"/>
+                            </div>
+                        </div>
+                    </div>
+                    <ui:repeat value="#{questionsAdminMB.questionsList}" 
+                               var="question">
+                        <div class="container quit_space users_admin_list_item">
+                            <div class="row quit_space">
+                                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+
+                                    <div class="container quit_space">
+                                        <div class="row quit_space">
+                                            <div class="col-xs-12">
+                                                <p:outputLabel value="#{question.question}"
+                                                               styleClass = "users_admin_list_item_text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="container quit_space">
+                                        <div class="row quit_space">
+                                            <div class="col-xs-4">
+                                                <p:commandButton value="Editar" 
+                                                                 styleClass="users_admin_list_item_button
+                                                                 users_admin_list_item_edit_color">
+                                                    <p:ajax event="click"
+                                                            listener="#{questionsAdminMB.editQuestion(question)}"
+                                                            update="@form:id_add_question_dialog"/>
+                                                </p:commandButton>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <p:commandButton value="Eliminar" 
+                                                                 styleClass="users_admin_list_item_button
+                                                                 users_admin_list_item_delete_color">
+                                                    <p:ajax event="click"
+                                                            listener="#{questionsAdminMB.deleteQuestion(question)}"
+                                                            update="@form:id_delete_question_dialog"/>
+                                                </p:commandButton>
+                                            </div>
+                                            <div class="col-xs-4">     
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </ul>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</html>
+

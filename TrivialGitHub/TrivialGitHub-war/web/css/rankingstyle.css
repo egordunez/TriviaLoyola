@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 27, 2016, 10:35:15 AM
+    Author     : hipnosapo
+*/
+
+.rank_list_container div{
+    /*border: 0.5px solid #ff0025;*/
+}
+
+.rank_list_container{
+    margin-top: 10vh;
+    background-color: #eceff1;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+}
+
+.ranking_position_text{
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    /*border-bottom-left-radius: 5px;*/
+    border-bottom-right-radius: 5px;
+    background-color: #00695c;
+    color:#fff;
+    text-align: center;
+    font-size: large;
+    font-weight: lighter;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.ranking_points_text{
+    margin-top: 5px;
+    color: #004d40;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.ranking_name_text{
+    color: #311b92;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: medium;
+    padding-left: 3px;
+}
+.ranking_name_div{
+    background-color: #fff;
+    margin-top: 5px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius:2px ;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 500ms;
+    -moz-transition-timing-function: linear;
+}
+.ranking_name_div:hover{
+    background-color: #c8e6c9;
+}
+
+.ranking_item{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 500ms;
+    -moz-transition-timing-function: linear;
+}
+.ranking_item:hover{
+    border-radius: 5px;
+}
+
+.ranking_info_text{
+    color: #0d47a1;
+    font-size: small;
+}
+
+@media only screen and (max-width: 400px) {
+    .ranking_points_text{
+        margin-top: 2px;
+        font-size: medium;
+        font-weight: bold;
+    }
+    
+    .ranking_name_text{
+        margin-top: 2px;
+        font-weight: bold;
+        font-size: medium;
+    }
+    .ranking_position_text{
+        font-size: medium;
+    }
+}

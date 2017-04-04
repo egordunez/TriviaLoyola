@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title><ui:insert name="page_title" /></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
+        
+        <link href="css/templatestyle.css" rel="stylesheet"/>
+        <link href="css/indexstyle.css" rel="stylesheet"/>
+        <link href="css/settingsstyles.css" rel="stylesheet"/>
+        <link href="css/usersadminstyle.css" rel="stylesheet"/>
+        <link href="css/questionsstyle.css" rel="stylesheet"/>
+        <link href="css/rankingstyle.css" rel="stylesheet"/>
+        <link href="css/playstyle.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <div class="template_banel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6 col-lg-1 col-md-1 col-sm-1">
+                        <h:link outcome="index.xhtml">
+                            <img src="img/ic_home_64.png"
+                                 class="template_login_out center-block"></img>
+                        </h:link>
+                    </div>
+                    <div class="col-xs-0 col-lg-10 col-md-10 col-sm-10">
+                        
+                    </div>
+                    <div class="col-xs-6 col-lg-1 col-md-1 col-sm-1">
+                        <p:commandLink actionListener="#{sesionAdminMB.logout(request)}">
+                            <img src="img/ic_exit_to_app_64.png"
+                                 class="template_login_out center-block"></img>
+                        </p:commandLink>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h:form enctype="multipart/form-data">
+                            <h3 class="index_wellcome_text">
+                            #{sesionAdminMB.fullName}
+                            </h3>
+                            <ui:insert name="page_content">
+                                <!-- Content page-->
+                                <span>Página en construcción</span>
+                            </ui:insert>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            #{questionsByCategoryMB.pageTitle}
+        </ui:define>
+        <ui:define name="page_content">
+            <h4 class="index_wellcome_text">
+                #{questionsByCategoryMB.pageTitle}
+            </h4>
+            <ul class="rank_list_container quit_space">
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <ui:repeat value="#{questionsByCategoryMB.questions}" 
+                                   var="question">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                                <p:commandLink actionListener="#{questionsByCategoryMB.playQuestion(question)}"
+                                               styleClass="index_play_div">
+                                    <div class="question_by_category_item">
+                                        <div class="row quit_space">
+                                            <div class="col-xs-3">
+                                                <p:outputLabel value="#{questionsByCategoryMB.questionNumber(question)}"
+                                                               styleClass="ranking_position_text"/>
+                                            </div>
+                                            <div class="col-xs-7">
+                                                <p:outputLabel value="#{question.getQuestionSummary()}"
+                                                               styleClass="question_by_category_question_text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p:commandLink>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </div>
+            </ul>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            Ajustes
+        </ui:define>
+        <ui:define name="page_content">
+            <div class="container setting_page_container_div">
+                <!--Users division-->
+                
+                <div class="row setting_users_div settings_options_common_settings center-block">
+                    <p:commandLink actionListener="#{sesionAdminMB.adminUsers()}"
+                                   styleClass="setting_questions_div">
+                        <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
+                            <img src="img/ic_account_child_64.png"
+                                 class="index_options_icon"></img>
+                        </div>
+                        <div class="col-xs-9 col-sm-8 col-md-9 col-lg-9">
+                            <h3>Usuarios</h3>
+                            <h5>Administrar usuarios</h5>
+                        </div>
+                    </p:commandLink>
+                </div>
+                
+                <!--Users banned division-->
+                
+                <div class="row setting_banned_div settings_options_common_settings center-block">
+                    <p:commandLink actionListener="#{sesionAdminMB.bannedUsers()}"
+                                   styleClass="setting_questions_div">
+                        <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
+                            <img src="img/ic_account_child_64.png"
+                                 class="index_options_icon"></img>
+                        </div>
+                        <div class="col-xs-9 col-sm-8 col-md-9 col-lg-9">
+                            <h3>Baneados</h3>
+                            <h5>Usuarios baneados</h5>
+                        </div>
+                    </p:commandLink>
+                </div>
+                
+                <!--Questions division-->
+
+                <div class="row setting_questions_div settings_options_common_settings center-block">
+                    <p:commandLink actionListener="#{sesionAdminMB.adminQuestions()}"
+                                   styleClass="setting_questions_div">
+                        <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
+                            <img src="img/ic_live_help_64.png"
+                                 class="index_options_icon"></img>
+                        </div>
+                        <div class="col-xs-9 col-sm-8 col-md-9 col-lg-9">
+                            <h3>Preguntas</h3>
+                            <h5>Administrar preguntas</h5>
+                        </div>
+                    </p:commandLink>
+                </div>
+                
+                <!--Championship division-->
+                <div class="row setting_champ_div settings_options_common_settings center-block">
+                    <p:commandLink actionListener="#{sesionAdminMB.adminChampionship()}"
+                                   styleClass="setting_questions_div">
+                        <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3">
+                            <img src="img/ic_flag_64.png"
+                                 class="index_options_icon"></img>
+                        </div>
+                        <div class="col-xs-9 col-sm-8 col-md-9 col-lg-9">
+                            <h3>Campeonato</h3>
+                            <h5>Administrar campeonato</h5>
+                        </div>
+                    </p:commandLink>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            Categorías
+        </ui:define>
+        <ui:define name="page_content">
+            <div class="container play_page_container_div quit_space">
+                <!-- division-->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_spiri_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(0)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/ic_favorite_64.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Espiritualidad</h3>
+                                        <h5>Genera una nueva vida</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_ciencias_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(1)}" 
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/ciencia.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Ciencia</h3>
+                                        <h5>Naturaleza+Tecnología</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_historia_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(2)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/historia.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Historia</h3>
+                                        <h5>Sucesos, acontecimientos</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_mates_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(3)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/mate.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Matemáticas</h3>
+                                        <h5>¿Sólo para calcular?</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_lenguas_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(4)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/lengua.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Lenguas</h3>
+                                        <h5>Idiomas y comunicación</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_deportes_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(5)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/deporte.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Deporte</h3>
+                                        <h5>¿Football o Baseball?</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_arte_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(6)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/arte.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Artes</h3>
+                                        <h5>Conocimiento+Creatividad</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="container quit_space play_geo_div play_category_common_settings">
+                            <p:commandLink actionListener="#{sesionAdminMB.playCategory(7)}"
+                                           styleClass="index_play_div">
+                                
+                                <div class="row quit_space">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/geo.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Geografía</h3>
+                                        <h5>¡Sé donde estoy parado!</h5>
+                                    </div>
+                                </div>
+                            </p:commandLink>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

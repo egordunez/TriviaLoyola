@@ -1,0 +1,109 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 18, 2016, 6:56:57 AM
+    Author     : hipnosapo
+*/
+
+.body{
+    background-color: #b0bec5;
+}
+
+.template_banel{
+    background-color: #26c6da;
+    width: 100vw;
+    height: 50vh;
+    
+    /*mozilla animation*/
+    -moz-animation-name: color_change;
+    -moz-animation-duration: 50s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+}
+
+.template_login_out{
+    margin-top: 5px;
+    padding: 2px;
+    border-radius: 60px;
+    background-color: #eceff1;
+    
+    /*mozilla*/
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+
+.template_login_out:hover{
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+    background-color: #cfd8dc;
+}
+
+@-moz-keyframes color_change{
+    0%{
+        background-color : #e53935;
+    }
+    
+    6%{
+        background-color : #d81b60;
+    }
+    
+    12%{
+        background-color : #8e24aa;
+    }
+    
+    18%{
+        background-color : #5e35b1;
+    }
+    
+    24%{
+        background-color : #3949ab;
+    }
+    
+    30%{
+        background-color : #1e88e5;
+    }
+    
+    36%{
+        background-color : #039be5;
+    }
+    
+    42%{
+        background-color : #00acc1;
+    }
+    
+    48%{
+        background-color : #00897b;
+    }
+    
+    54%{
+        background-color : #43a047;
+    }
+    
+    60%{
+        background-color : #7cb342;
+    }
+    
+    66%{
+        background-color : #c0ca33;
+    }
+    
+    72%{
+        background-color : #fdd835;
+    }
+    
+    78%{
+        background-color : #ffb300;
+    }
+    
+    84%{
+        background-color : #fb8c00;
+    }
+    
+    100%{
+        background-color : #f4511e;
+    }
+}

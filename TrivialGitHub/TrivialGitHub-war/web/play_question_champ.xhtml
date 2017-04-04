@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            #{playChampMB.questionSelected.question}
+        </ui:define>
+        <ui:define name="page_content">
+            <!--wrong answer definition-->
+            <p:dialog modal="true" 
+                      closable="false"
+                      width="300px"
+                      styleClass="users_admin_add_user_dialog"
+                      resizable="true"
+                      visible="#{playChampMB.wrongAnswerVisivility}"
+                      id="id_wrong_answer_dialog">
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <img src="img/wikipedia.png"
+                                 class="template_login_out center-block"
+                                 style="margin-top: 5px"
+                                 title="Atrás"></img>
+                            <p:outputLabel value="¡Respuesta incorrecta! Lo importante es saber donde investigar."
+                                           styleClass="users_admin_delete_user_warn"/><br/>
+                        </div>
+                    </div>
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:commandButton value="Continuar"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_confirm_color">
+                                <p:ajax event="click"
+                                        listener="#{playChampMB.closeWrongAnswerDialog()}"
+                                        update="@form:id_wrong_answer_dialog"/>
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>
+            <!--right answer definition-->
+            <p:dialog modal="true" 
+                      closable="false"
+                      width="300px"
+                      styleClass="users_admin_add_user_dialog"
+                      resizable="true"
+                      visible="#{playChampMB.rightAnswerVisivility}"
+                      id="id_right_answer_dialog">
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <img src="img/points.png"
+                                 class="template_login_out center-block"
+                                 style="margin-top: 5px"></img>
+                            <p:outputLabel value="¡Respuesta correcta,FELICIDADES!"
+                                           styleClass="users_admin_delete_user_warn"/><br/>
+                            <p:outputLabel value="#{playChampMB.getCongratulation()}"
+                                           styleClass="users_admin_delete_user_warn"/>
+                        </div>
+                    </div>
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:commandButton value="Continuar"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_confirm_color">
+                                <p:ajax event="click"
+                                        listener="#{playChampMB.closeRightAnswerDialog()}"
+                                        update="@form:id_right_answer_dialog"/>
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
+                        <p:commandLink actionListener="#{playChampMB.goBackplayingChamp()}">
+                            <img src="img/ic_chevron_left_64.png"
+                                 class="template_login_out center-block"
+                                 style="margin-top: 10px"
+                                 title="Atrás"></img>
+                        </p:commandLink>
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                        <h2 class="play_question_question_text">#{playChampMB.questionSelected.question}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <p:commandLink actionListener="#{playChampMB.checkAnswer(1)}"
+                                   styleClass="center-block play_question_answer_commons_text_color"
+                                   disabled="#{playChampMB.disableAnswer1}"
+                                   update="id_answer_1 id_wrong_answer_dialog id_right_answer_dialog"
+                                   id="id_answer_1">
+                        <div class="play_question_answer_commons
+                             #{playChampMB.disableAnswer1 ? 'play_question_answer_disabled' : 'play_question_answer1_color'}">
+                            <img src="img/ic_filter_1_24.png"
+                                 class="template_login_out center-block"
+                                 style="margin-top: 10px"
+                                 title="Atrás"></img>
+                            <p:outputLabel value="#{playChampMB.questionSelected.answer1}"/>
+
+                        </div>
+                    </p:commandLink>
+                </div>
+                <div class="row">
+                    <p:commandLink actionListener="#{playChampMB.checkAnswer(2)}"
+                                   styleClass="center-block play_question_answer_commons_text_color"
+                                   disabled="#{playChampMB.disableAnswer2}"
+                                   update="id_answer_2 id_wrong_answer_dialog id_right_answer_dialog"
+                                   id="id_answer_2">
+                        <div class="play_question_answer_commons
+                             #{playChampMB.disableAnswer2 ? 'play_question_answer_disabled' : 'play_question_answer2_color'}">
+                            <img src="img/ic_filter_2_24.png"
+                                 class="template_login_out center-block"
+                                 style="margin-top: 10px"
+                                 title="Atrás"></img>
+                            <p:outputLabel value="#{playChampMB.questionSelected.answer2}"/>
+                        </div>
+                    </p:commandLink>
+                </div>
+                <div class="row">
+                    <p:commandLink actionListener="#{playChampMB.checkAnswer(3)}"
+                                   styleClass="center-block play_question_answer_commons_text_color"
+                                   disabled="#{playChampMB.disableAnswer3}"
+                                   update="id_answer_3 id_wrong_answer_dialog id_right_answer_dialog"
+                                   id="id_answer_3">
+                        <div class="play_question_answer_commons 
+                             #{playChampMB.disableAnswer3 ? 'play_question_answer_disabled' : 'play_question_answer3_color'}">
+                            <img src="img/ic_filter_3_24.png"
+                                 class="template_login_out center-block"
+                                 style="margin-top: 10px"
+                                 title="Atrás"></img>
+                            <p:outputLabel value="#{playChampMB.questionSelected.answer3}"/>
+                        </div>
+                    </p:commandLink>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

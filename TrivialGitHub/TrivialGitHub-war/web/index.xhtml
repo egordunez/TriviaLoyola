@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            #{sesionAdminMB.fullName}
+        </ui:define>
+        <ui:define name="page_content">
+            <p:poll interval="10" update="id_index_ranking_group id_index_ranking_users"/>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4 class="index_wellcome_name">
+                            ¡Bienvenid@ al Trivia Online!
+                        </h4>
+                        <h5 class="index_wellcome_name">
+                            Estás en el puesto #{rankingMB.puesto(sesionAdminMB.updatedLogedUser)} con
+                            #{sesionAdminMB.updatedLogedUser.points} puntos acumulados
+                        </h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 index_ranking_div">
+                        <marquee class="index_ranking_header_text"
+                                 behavior="alternate"
+                                 scrollamount="1">Primeros Grupos del Centro</marquee>
+                        <h:panelGroup id="id_index_ranking_group">
+                            <ui:repeat value="#{rankingMB.getFirstGroupsList()}" 
+                                       var="group">
+                                <div class="col-xs-6">
+                                    <div class="ranking_item"
+                                         style="background-color: #82b1ff">
+                                        <div class="row quit_space">
+                                            <div class="col-xs-2 index_ranking_position_text">
+                                                <p:outputLabel value="#{rankingMB.getGroupPos(group)}"/>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <p:outputLabel value="#{group.points} pts"
+                                                               styleClass="index_ranking_points_text"/>
+                                            </div>
+                                        </div>
+                                        <div class="ranking_name_div">
+                                            <p:outputLabel value="#{group.groupName}"
+                                                           styleClass="index_ranking_name_text"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </h:panelGroup>
+                        <marquee class="index_ranking_header_text"
+                                 behavior="alternate"
+                                 scrollamount="2">Alumnos con más conocimientos</marquee>
+                        <h:panelGroup id="id_index_ranking_users">
+                            <ui:repeat value="#{rankingMB.firstUsersList}" 
+                                       var="user">
+                                <div class="col-xs-12">
+                                    <div class="ranking_item"
+                                         style="background-color: #{rankingMB.CSSColor(user)}">
+                                        <div class="row quit_space">
+                                            <div class="col-xs-2 index_ranking_position_text">
+                                                <p:outputLabel value="#{rankingMB.puesto(user)}"/>
+                                            </div>
+                                            <div class="col-xs-7">
+                                                <p:outputLabel value="Average #{user.ave}"
+                                                               styleClass="index_ranking_info_text"/>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <p:outputLabel value="#{user.points} pts"
+                                                               styleClass="index_ranking_points_text"/>
+                                            </div>
+                                        </div>
+                                        <div class="ranking_name_div">
+                                            <p:outputLabel value="#{user.fullName}"
+                                                           styleClass="index_ranking_name_text"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </h:panelGroup>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                        <div class="container quit_space">
+                            <!--Play division-->
+
+                            <div class="row index_play_div index_options_common_settings center-block">
+                                <p:commandLink actionListener="#{sesionAdminMB.play()}"
+                                               styleClass="index_play_div">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/ic_details_64.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>¡A Jugar!</h3>
+                                        <h5>Aumenta tu puntuación</h5>
+                                    </div>
+                                </p:commandLink>
+                            </div>
+
+                            <!--Rank division-->
+
+                            <div class="row index_rank_div index_options_common_settings center-block">
+                                <p:commandLink actionListener="#{sesionAdminMB.ranking(request)}"
+                                               styleClass="index_play_div">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/ic_format_list_numbered_64.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Ranking</h3>
+                                        <h5>¿En que puesto estoy?</h5>
+                                    </div>
+                                </p:commandLink>
+                            </div>
+                            <!--Champ division-->
+                            <div class="row index_champ_div index_options_common_settings center-block">
+                                <p:commandLink actionListener="#{sesionAdminMB.playChampionship()}"
+                                               styleClass="index_play_div">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/ic_flash_on_64.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Campeonato</h3>
+                                        <h5>¡A por la victoria!</h5>
+                                    </div>
+                                </p:commandLink>
+                            </div>
+                            <!--Configuration division-->
+
+                            <div class="#{sesionAdminMB.autenticatedAdmin ? 'row index_config_div index_options_common_settings center-block' : 'index_config_div_none'}">
+                                <p:commandLink actionListener="#{sesionAdminMB.settings(request)}"
+                                               styleClass="index_play_div">
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+                                        <img src="img/ic_settings_64.png"
+                                             class="index_options_icon"></img>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+                                        <h3>Administración</h3>
+                                        <h5>Usuarios y preguntas</h5>
+                                    </div>
+                                </p:commandLink> 
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

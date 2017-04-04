@@ -1,0 +1,236 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 19, 2016, 3:02:18 AM
+    Author     : hipnosapo
+*/
+
+div{
+    /*border: 0.5px solid #ff0025;*/
+}
+
+.index_wellcome_text{
+    margin-top: 10px;
+    color: #ffebee;
+    font-weight: bolder;
+}
+
+.index_wellcome_name{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #ffebee;
+}
+
+.index_play_div{
+    background-color: #ce93d8;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.index_play_div:hover{
+    background-color: #e1bee7;
+    color: #263238;
+}
+
+
+.index_champ_div{
+    background-color: #a5d6a7;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.index_champ_div:hover{
+    background-color: #c8e6c9;
+    color: #263238;
+}
+
+
+.index_rank_div{
+    background-color: #ffcc80;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.index_rank_div:hover{
+    background-color: #ffe0b2;
+    color: #263238;
+}
+
+.index_config_div{
+    background-color: #f48fb1;
+    color: #455a64;
+  
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.index_config_div:hover{
+    background-color: #f8bbd0;
+    color: #263238;
+}
+.index_config_div_none{
+    display: none;
+}
+
+.index_options_icon{
+    margin-top: 15px;
+}
+
+.index_options_common_settings{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 25vw;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .index_options_common_settings{
+        width: 60vw;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .index_options_common_settings{
+        width: 80vw;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .index_options_common_settings{
+        width: 85vw;
+    }
+}
+
+.index_ranking_info_text{
+    color: #0d47a1;
+    font-size: smaller;
+}
+.index_ranking_points_text{
+    margin-top: 1px;
+    color: #004d40;
+    font-size: small;
+    font-weight: bold;
+}
+
+.index_ranking_div{
+    border-radius: 5px;
+    background-color: #eceff1;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    /*mozilla animation*/
+    -moz-animation-name: index_ranking_color_change;
+    -moz-animation-duration: 40s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+}
+
+.index_ranking_header_text{
+    text-align: center;
+    font-size: small;
+    font-weight: bolder;
+    color: #311b92;
+}
+
+.index_ranking_name_text{
+    color: #311b92;
+    margin-top: 1px;
+    font-weight: normal;
+    font-size: small;
+    padding-left: 3px;
+}
+
+.index_ranking_position_text{
+    padding-left: 5px;
+    padding-right: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-bottom-right-radius: 5px;
+    background-color: #00695c;
+    color:#fff;
+    text-align: center;
+    font-size: small;
+    font-weight: lighter;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+@-moz-keyframes index_ranking_color_change{
+    0%{
+        background-color : #fff3e0;
+    }
+    
+    6%{
+        background-color : #fff8e1;
+    }
+    
+    12%{
+        background-color : #fffde7;
+    }
+    
+    18%{
+        background-color : #f9fbe7;
+    }
+    
+    24%{
+        background-color : #f1f8e9;
+    }
+    
+    30%{
+        background-color : #e8f5e9;
+    }
+    
+    36%{
+        background-color : #e0f2f1;
+    }
+    
+    42%{
+        background-color : #e0f7fa;
+    }
+    
+    48%{
+        background-color : #e1f5fe;
+    }
+    
+    54%{
+        background-color : #e3f2fd;
+    }
+    
+    60%{
+        background-color : #e8eaf6;
+    }
+    
+    66%{
+        background-color : #ede7f6;
+    }
+    
+    72%{
+        background-color : #f3e5f5;
+    }
+    
+    78%{
+        background-color : #fce4ec;
+    }
+    
+    84%{
+        background-color : #ffebee;
+    }
+    
+    100%{
+        background-color : #fbe9e7;
+    }
+}

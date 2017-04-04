@@ -1,0 +1,213 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 20, 2016, 3:44:38 AM
+    Author     : hipnosapo
+*/
+
+div{
+    /*border: 0.5px solid #ff0025;*/
+}
+.quit_space{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.users_admin_add_user_dialog{
+    border-radius: 5px;
+    background-color: #01579b;
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+
+.users_admin_add_user_dialog_butons{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 30px;
+    width: 100%;
+    color: #000;
+    border: 0px solid;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.users_admin_add_user_dialog_butons:hover{
+    color: #fff;
+}
+
+.users_admin_add_user_dialog_butons_cancel_color{
+    background-color: #b71c1c;
+}
+.users_admin_add_user_dialog_butons_confirm_color{
+    background-color: #00bfa5;
+}
+
+.users_admin_add_user_button{
+    position: fixed;
+    top: 80vh;
+    left: 85vw;
+    border-radius: 100px;
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+    z-index: 10;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+    
+    /*mozilla animation*/
+    -moz-animation-name: zoom_anim;
+    -moz-animation-duration: 300ms;
+    -moz-animation-timing-function: linear;
+}
+
+@-moz-keyframes zoom_anim{
+    0%{
+        width: 0px;
+        height: 0px;
+    }
+    
+    100%{
+        width: 55px;
+        height: 55px;
+    }
+}
+
+.users_admin_add_user_button:hover{
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 5px 0 rgba(0, 0, 0, 0.12);
+    width: 46px;
+    height: 46px;
+}
+
+.users_admin_input_text{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 30px;
+    width: 100%;
+    background-color: #01579b;
+    color: #4fc3f7;
+    padding-left:5px;
+    border: 0px solid;
+    border-bottom-width: 1px;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.users_admin_input_text:hover{
+    color: #fff;
+}
+.users_admin_input_text:focus{
+    color: #fff;
+}
+
+.users_admin_pass_not_match_img{
+    display: none;
+}
+.users_admin_pass_match_img{
+    display: block;
+}
+
+.users_admin_column_name{
+    color:#fff;
+    font-weight: bolder;
+    text-align: center;
+    font-size: medium;
+}
+
+.users_admin_list_container{
+    margin-top: 10vh;
+    padding: 10px;
+    background-color: #4db6ac;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16), 0 5px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+}
+
+.users_admin_list_header{
+    border: 0px solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #fff;
+    margin-bottom: 20px;
+}
+
+.users_admin_list_item{
+    border: 0px solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #b2ebf2;
+    margin-bottom: 10px;
+}
+
+.users_admin_list_item_delete_color{
+    background-color: #b71c1c;
+}
+.users_admin_list_item_delete_color:hover{
+    background-color: #c62828;
+}
+
+.users_admin_list_item_edit_color{
+    background-color: #0d47a1;
+}
+.users_admin_list_item_edit_color:hover{
+    background-color: #1565c0;
+}
+
+.users_admin_list_item_button{
+     border: 0px solid;
+     color: #b0bec5;
+     border-radius: 3px;
+     -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+
+.users_admin_list_item_button:hover{
+    color: #fff;
+}
+
+.users_admin_list_item_text{
+    font-weight: normal;
+    color: #212121;
+}
+
+.users_admin_delete_user_warn{
+    color: #fff;
+    text-align: center;
+}
+
+.users_admin_select_menu{
+    background-color: #01579b;
+    color: #81d4fa;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.users_admin_select_menu:hover{
+    color: #fff;
+}
+
+div ul{
+    background-color: #01579b;
+}
+div ul li{
+    background-color: #01579b;
+    color: #81d4fa;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+div ul li:hover{
+    color: #fff;
+    background-color: #0277bd;
+}
+
+@media only screen and (max-width: 768px) {
+    .users_admin_list_header{
+        display: none;
+    }
+}

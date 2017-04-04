@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            Cargar Usuarios
+        </ui:define>
+        <ui:define name="page_content">
+            <div class="container play_page_container_div quit_space">
+                <!-- division-->
+                <div class="row">
+                    <div class="col-xs-3">
+
+                    </div>
+                    <div class="col-xs-3">
+                        <p:fileUpload value="#{usersAdminMB.excelUploadedFile}" 
+                                      fileUploadListener="#{usersAdminMB.fileUploadListener}"
+                                      mode="simple"
+                                      dragDropSupport="true"
+                                      fileLimit="1"
+                                      multiple="false"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <h:commandButton value="Cargar Hoja de cálculo"
+                                         actionListener="#{usersAdminMB.updateFromExcel()}"
+                                         class="users_admin_list_item_button
+                                                 users_admin_list_item_edit_color">
+                        </h:commandButton>
+                    </div>
+                    <div class="col-xs-3">
+
+                    </div>
+                </div>    
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

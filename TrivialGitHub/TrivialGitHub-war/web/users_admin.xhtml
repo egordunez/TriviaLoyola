@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/trivial_template.xhtml">
+        <ui:define name="page_title">
+            Administrar usuarios
+        </ui:define>
+        <ui:define name="page_content">
+            <p:commandLink>
+                <img src="img/ic_add_circle_64.png"
+                     class="users_admin_add_user_button"
+                     title="Adicionar Usuario"></img>
+                <p:ajax event="click"
+                        listener="#{usersAdminMB.addUser()}"
+                        update="id_add_user_dialog"/>
+            </p:commandLink>
+            <!--Dialog delete definition-->
+            <p:dialog modal="true" 
+                      closable="false"
+                      width="300px"
+                      styleClass="users_admin_add_user_dialog"
+                      resizable="true"
+                      visible="#{usersAdminMB.deleteUserDialogVisivility}"
+                      id="id_delete_user_dialog">
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:outputLabel value="De continuar se perderán los datos de: #{usersAdminMB.userLoyolaEntity.fullName}"
+                                           styleClass="users_admin_delete_user_warn"/><br/>
+                        </div>
+                    </div>
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:commandButton value="Continuar"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_confirm_color">
+                                <p:ajax event="click"
+                                        listener="#{usersAdminMB.confirmDeleteUser()}"
+                                        update="@form:id_delete_user_dialog id_user_page_list"/>
+                            </p:commandButton>
+                        </div>
+                        <div class="col-xs-12">
+                            <p:commandButton value="Atrás"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_cancel_color">
+                                <p:ajax event="click"
+                                        listener="#{usersAdminMB.cancelDeleteUser()}"
+                                        update="@form:id_delete_user_dialog"/>
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>
+
+            <!--Dialog add definition-->
+            <p:dialog modal="true" 
+                      closable="false"
+                      width="300px"
+                      styleClass="users_admin_add_user_dialog"
+                      resizable="true"
+                      visible="#{usersAdminMB.addUserDialogVisivility}"
+                      id="id_add_user_dialog">
+
+                <div class="container quit_space">
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:inputText value="#{usersAdminMB.fullName}"
+                                         id="id_full_name_input_text"
+                                         styleClass="users_admin_input_text"
+                                         placeholder="#{usersAdminMB.fullNameTextHint}">
+                                <p:ajax event="change"
+                                        listener="#{usersAdminMB.generateUserFalse()}"
+                                        update="id_posible_username_text id_posible_pass"/>
+                            </p:inputText><br/>
+                            <h5 class="settings_menu_title">Seleccione Grupo debajo</h5>
+                            <p:selectOneMenu value="#{usersAdminMB.groupSelected}"
+                                             styleClass="users_admin_select_menu center-block">
+                                <p:ajax listener="#{usersAdminMB.change}"
+                                        event="change"/>
+                                <f:selectItems value="#{usersAdminMB.posiblesGroups}"/>
+                            </p:selectOneMenu><br/>
+                            <p:outputLabel value="Usuario: #{usersAdminMB.posibleUserName}"
+                                           id="id_posible_username_text"/><br/>
+                            <p:inputText value="#{usersAdminMB.pass}"
+                                         styleClass="users_admin_input_text"
+                                         placeholder="Posible clave de usuario"
+                                         id="id_posible_pass">
+                                <p:ajax event="keyup"
+                                        listener="#{usersAdminMB.generateUserFalse()}"
+                                        update="@form:id_posible_username_text"/>
+                            </p:inputText><br/>
+                            <h5 class="settings_menu_title">Seleccione Rol debajo</h5>
+                            <p:selectOneMenu value="#{usersAdminMB.roleSelected}"
+                                             styleClass="users_admin_select_menu center-block">
+                                <p:ajax listener="#{usersAdminMB.change}"
+                                        event="change"/>
+                                <f:selectItems value="#{usersAdminMB.posiblesRoles}"/>
+                            </p:selectOneMenu><br/>
+                        </div>
+                    </div>
+                    <div class="row quit_space">
+                        <div class="col-xs-12">
+                            <p:commandButton value="Continuar"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_confirm_color">
+
+                                <p:ajax event="click"
+                                        listener="#{usersAdminMB.confirmAddUser()}"
+                                        update="id_add_user_dialog @form:id_user_page_list"/>
+                            </p:commandButton>
+                        </div>
+                        <div class="col-xs-12">
+                            <p:commandButton value="Atrás"
+                                             styleClass="users_admin_add_user_dialog_butons users_admin_add_user_dialog_butons_cancel_color">
+                                <p:ajax event="click"
+                                        listener="#{usersAdminMB.cancelAddUser()}"
+                                        update="id_add_user_dialog"/>
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </p:dialog>
+
+            <h:panelGroup>
+                <ul class="users_admin_list_container quit_space">
+                    <div class="container quit_space users_admin_list_header">
+                        <div class="row">
+                            <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                <p:outputLabel value="Adicionar desde Hoja de cálculo:"
+                                                           styleClass = "users_admin_column_name"/>
+                                <br/>
+                                <p:commandButton value="Adicionar"
+                                                 styleClass="users_admin_list_item_button
+                                                 users_admin_list_item_edit_color">
+                                    <p:ajax event="click"
+                                            listener="#{sesionAdminMB.loadUserFromExel()}"/>
+                                </p:commandButton>
+                            </div>
+                            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                <p:outputLabel value="Filtrar por:"
+                                                           styleClass = "users_admin_column_name"/>
+                                <p:inputText placeholder="Nombre o Usuario"  
+                                             value="#{usersAdminMB.filterValue}"
+                                             styleClass="center-block users_admin_input_text">
+                                    <p:ajax event="keyup"
+                                            update="id_user_page_list"
+                                            listener="#{usersAdminMB.onFilterChangedText()}"/>
+                                </p:inputText>
+                            </div>
+                            <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
+                            </div>
+                        </div>
+                        <div class="row quit_space">
+                            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+                                <div class="container quit_space">
+                                    <div class="row quit_space">
+                                        <div class="col-xs-0 col-lg-2 col-md-2 col-sm-2">
+                                            <p:outputLabel value="Usuario"
+                                                           styleClass = "users_admin_column_name"/>
+                                        </div>
+                                        <div class="col-xs-0 col-lg-5 col-md-5 col-sm-5">
+                                            <p:outputLabel value="Nombre"
+                                                           styleClass = "users_admin_column_name"/>
+                                        </div>
+                                        <div class="col-xs-0 col-lg-3 col-md-3 col-sm-3">
+                                            <p:outputLabel value="Clave"
+                                                           styleClass = "users_admin_column_name"/>
+                                        </div>
+                                        <div class="col-xs-0 col-lg-2 col-md-2 col-sm-2">
+                                            <p:outputLabel value="Grupo"
+                                                           styleClass = "users_admin_column_name"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                                <div class="container quit_space">
+                                    <div class="row quit_space">
+                                        <div class="col-xs-12">
+                                            <p:outputLabel value="Acciones"
+                                                           styleClass = "users_admin_column_name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h:panelGroup id="id_user_page_list">
+                        <ui:repeat value="#{usersAdminMB.usersList}" 
+                                   var="user">
+                            <div class="container quit_space users_admin_list_item">
+                                <div class="row quit_space">
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+
+                                        <div class="container quit_space">
+                                            <div class="row quit_space">
+                                                <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                                    <p:outputLabel value="#{user.userName}"
+                                                                   styleClass = "users_admin_list_item_text"/>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-5 col-md-5 col-sm-5">
+                                                    <p:outputLabel value="#{user.fullName}"
+                                                                   styleClass = "users_admin_list_item_text"/>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-3">
+                                                    <p:outputLabel value="#{user.pass}"
+                                                                   styleClass = "users_admin_list_item_text"/>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-2 col-md-2 col-sm-2">
+                                                    <p:outputLabel value="#{user.group}"
+                                                                   styleClass = "users_admin_list_item_text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="container quit_space">
+                                            <div class="row quit_space">
+                                                <div class="col-xs-4">
+                                                    <p:commandButton value="Editar" 
+                                                                     styleClass="users_admin_list_item_button
+                                                                     users_admin_list_item_edit_color">
+                                                        <p:ajax event="click"
+                                                                listener="#{usersAdminMB.editUser(user)}"
+                                                                update="@form:id_add_user_dialog"/>
+                                                    </p:commandButton>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <p:commandButton value="Eliminar" 
+                                                                     styleClass="users_admin_list_item_button
+                                                                     users_admin_list_item_delete_color">
+                                                        <p:ajax event="click"
+                                                                listener="#{usersAdminMB.deleteUser(user)}"
+                                                                update="@form:id_delete_user_dialog"/>
+                                                    </p:commandButton>
+                                                </div>
+                                                <div class="col-xs-4">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ui:repeat>
+                    </h:panelGroup>
+                </ul>
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</html>
+

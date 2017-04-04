@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 20, 2016, 2:38:37 AM
+    Author     : hipnosapo
+*/
+
+
+
+.setting_page_container_div{
+    margin-top: 10vh;
+}
+
+.setting_users_div{
+    background-color: #81c784;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.setting_users_div:hover{
+    background-color: #a5d6a7;
+    color: #263238;
+}
+
+.setting_banned_div{
+    background-color: #a1887f;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.setting_banned_div:hover{
+    background-color: #bcaaa4;
+    color: #263238;
+}
+
+
+.setting_questions_div{
+    background-color: #fff176;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.setting_questions_div:hover{
+    background-color: #fff59d;
+    color: #263238;
+}
+
+.setting_champ_div{
+    background-color: #4db6ac;
+    color: #455a64;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.setting_champ_div:hover{
+    background-color: #80cbc4;
+    color: #263238;
+}
+
+.settings_options_common_settings{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 30vw;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+
+.settings_menu_title{
+    color:#fff;
+    margin-right: 10px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .settings_options_common_settings{
+        width: 60vw;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .settings_options_common_settings{
+        width: 70vw;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .settings_options_common_settings{
+        width: 85vw;
+    }
+}

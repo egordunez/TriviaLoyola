@@ -1,0 +1,114 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 16, 2016, 6:17:44 AM
+    Author     : hipnosapo
+*/
+
+*{
+    /*border: 0.5px solid #ff0025;*/
+}
+
+body{
+    background-color: #4a148c;
+}
+
+.login_container_div{
+    margin-top: 25vh;
+}
+
+.login_group_div{
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #7b1fa2;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    
+    /*mozilla*/
+    -moz-transition-property: all;
+    -moz-transition-duration: 200ms;
+    -moz-transition-timing-function: linear;
+}
+.login_group_div:hover{
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.16), 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+}
+
+.login_welcome_text{
+    text-align: center;
+    color: #ffff00;
+}
+
+.login_input_text{
+    margin-top: 10px;
+    height: 35px;
+    width: 50%;
+    background: #7b1fa2;
+    color: #ffff00;
+    padding-left:5px;
+    border: 0px solid;
+    border-bottom-width: 1px;
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+}
+.login_input_text:focus{
+    color: #fff;
+}
+.login_input_text:hover{
+    color: #fff;
+}
+
+.login_access_button{
+    border-width: 0px;
+    color: #ce93d8;
+    background-color : #4a148c;
+    height: 30px;
+    width: 50%;
+    margin-top:10px;
+    margin-bottom: 10px;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    
+    -moz-transition-property: all;
+    -moz-transition-duration: 300ms;
+    -moz-transition-timing-function: linear;
+    /*-moz-transition-delay: 0.1s;*/
+}
+/**/
+.login_access_button:hover{
+    color: #fff;
+    border-bottom-width: 1px;
+    border-bottom-color: #1976d2;
+}
+/**/
+.login_access_button:focus{
+    color: #4a148c;
+    background-color : #fff;
+}
+
+.login_error_output_text{
+    text-align: center;
+    
+    font-size: medium;
+    
+    /*mozilla animation*/
+    -moz-animation-name: font_size_zooming;
+    -moz-animation-duration: 500ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+}
+
+@-moz-keyframes font_size_zooming{
+    0%{
+        color: #84ffff; 
+    }
+    
+    100%{
+        color: #00b8d4;
+    }
+}

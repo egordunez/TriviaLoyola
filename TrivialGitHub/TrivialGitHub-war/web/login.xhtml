@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Trivia Online</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
+        <link href="css/loginstyles.css" rel="stylesheet"/> 
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="container login_container_div">
+                <div class="row">
+                    <div class="col-lg-2">
+
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="login_group_div">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <img src="img/ic_star_64.png"
+                                         class="center-block"></img>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4 class="login_welcome_text"
+                                        style="font-weight: bold;">¡Bienvenido al Juego Trivia Online!</h4>
+                                    <h5 class="login_welcome_text">Introduzca debajo sus credenciales</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div style="height: 30px">
+                                        <p:outputLabel value="#{sesionAdminMB.errorMessage}"
+                                                   styleClass="login_error_output_text center-block"
+                                                   id="id_menssage"></p:outputLabel>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p:inputText value="#{sesionAdminMB.user}"
+                                                 styleClass="login_input_text center-block"
+                                                 placeholder="Escriba aquí su usuario"></p:inputText>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p:password value="#{sesionAdminMB.pass}"
+                                                styleClass="login_input_text center-block"
+                                                placeholder="Escriba aquí su clave"></p:password>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h:commandButton value="Acceder" 
+                                                     class="login_access_button center-block"
+                                                     actionListener="#{sesionAdminMB.autenticateUser(request)}">
+                                    </h:commandButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
